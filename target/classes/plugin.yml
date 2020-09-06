@@ -1,0 +1,4 @@
+name: Cannons
+version: 1.0-SNAPSHOT
+main: fr.esu.mc.cannons.Cannons
+api-version: 1.13

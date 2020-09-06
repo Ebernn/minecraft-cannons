@@ -1,0 +1,4 @@
+name: Cannons
+version: ${project.version}
+main: fr.esu.mc.cannons.Cannons
+api-version: "1.13"
