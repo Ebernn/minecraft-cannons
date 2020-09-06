@@ -49,7 +49,7 @@ public class SimpleCannon extends Furniture {
                 return;
             ItemStack is = player.getInventory().getItemInMainHand();
             if(is.getType().equals(Material.FIRE_CHARGE))
-                if(!hasArrow()){
+                if(!hasProjectile()){
                     fEntity entity = getPivot();
                     entity.setItemInMainHand(is.clone());
                     update();
@@ -57,8 +57,8 @@ public class SimpleCannon extends Furniture {
                     getWorld().playSound(getLocation(), Sound.BLOCK_STONE_BUTTON_CLICK_ON, 1, 1.4f);
                     return;
                 }
-            if(hasArrow())
-                spawnFireball(getArrow().getType(), player);
+            if(hasProjectile())
+                spawnFireball(getProjectile().getType(), player);
         }
     }
 
@@ -163,7 +163,7 @@ public class SimpleCannon extends Furniture {
         return getEntityByName(pivotName);
     }
 
-    private ItemStack getArrow(){
+    private ItemStack getProjectile(){
         for(fEntity stand : getfAsList()){
             if(stand.getName().equalsIgnoreCase(pivotName)){
                 if(!(stand.getItemInMainHand() == null || stand.getItemInMainHand().getType().equals(Material.AIR)))
@@ -173,7 +173,7 @@ public class SimpleCannon extends Furniture {
         return null;
     }
 
-    private boolean hasArrow(){
+    private boolean hasProjectile(){
         for(fEntity stand : getfAsList()){
             if(stand.getName().equalsIgnoreCase(pivotName))
                 return !(stand.getItemInMainHand() == null || stand.getItemInMainHand().getType().equals(Material.AIR));
